@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function MainPageEmpty() {
   return (
     <div className="page page--gray page--main">

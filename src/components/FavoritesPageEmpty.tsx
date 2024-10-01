@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function FavoritesPageEmpty() {
   return (
     <div className="page page--favorites-empty">

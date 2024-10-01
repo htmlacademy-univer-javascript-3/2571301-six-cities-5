@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function OfferNotLoggedPage() {
   return (
     <div className="page">
