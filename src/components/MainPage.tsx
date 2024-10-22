@@ -1,4 +1,4 @@
-import OfferList from './OfferList'; // Компонент для отображения списка предложений
+import OfferList from './OfferList';
 
 type Offer = {
   id: number;

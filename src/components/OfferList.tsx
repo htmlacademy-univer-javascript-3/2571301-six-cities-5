@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import OfferCard from './OfferCard';
 
 type Offer = {
@@ -29,7 +29,6 @@ const OfferList = ({ offers }: OfferListProps) => {
           <OfferCard offer={offer} />
         </div>
       ))}
-      {/* Пример использования переменной activeOfferId */}
       {activeOfferId && <p>Active Offer ID: {activeOfferId}</p>}
     </div>
   );

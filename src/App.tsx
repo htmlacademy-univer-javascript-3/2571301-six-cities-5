@@ -36,7 +36,7 @@ export default function App({ offers }: AppProps) {
           element={
             <PrivateRoute isAuth={isAuth}>
               <>
-                <FavoritesPage offers={offers} /> {/* Обернули в React Fragment */}
+                <FavoritesPage offers={offers} />
               </>
             </PrivateRoute>
           }
