@@ -35,9 +35,7 @@ export default function App({ offers }: AppProps) {
           path="/favorites"
           element={
             <PrivateRoute isAuth={isAuth}>
-              <>
-                <FavoritesPage offers={offers} />
-              </>
+              {<FavoritesPage offers={offers} />}
             </PrivateRoute>
           }
         />
