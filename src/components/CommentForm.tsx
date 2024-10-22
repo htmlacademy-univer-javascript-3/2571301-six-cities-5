@@ -6,8 +6,6 @@ const CommentForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ rating, comment });
-    // Здесь можно будет добавить логику отправки данных на сервер
   };
 
   return (

@@ -29,6 +29,8 @@ const OfferList = ({ offers }: OfferListProps) => {
           <OfferCard offer={offer} />
         </div>
       ))}
+      {/* Пример использования переменной activeOfferId */}
+      {activeOfferId && <p>Active Offer ID: {activeOfferId}</p>}
     </div>
   );
 };
