@@ -7,7 +7,8 @@ export const offer:OfferDescription [] = [
       '../../markup/img/apartment-02.jpg',
       '../../markup/img/apartment-03.jpg',
       '../../markup/img/studio-01.jpg',
-      '../../markup/img/apartment-01.jpg'
+      '../../markup/img/apartment-01.jpg',
+      '../../markup/img/apartment-012.jpg'
     ],
     isPremium:true,
     offerName:'Beautiful & luxurious studio at great location',
@@ -30,7 +31,8 @@ export const offer:OfferDescription [] = [
       '../../markup/img/apartment-02.jpg',
       '../../markup/img/apartment-03.jpg',
       '../../markup/img/studio-01.jpg',
-      '../../markup/img/apartment-01.jpg'
+      '../../markup/img/apartment-01.jpg',
+      '../../markup/img/apartment-012.jpg'
     ],
     isPremium:false,
     offerName:'Wood and stone place',
@@ -54,7 +56,8 @@ export const offer:OfferDescription [] = [
       '../../markup/img/room.jpg',
       '../../markup/img/apartment-03.jpg',
       '../../markup/img/studio-01.jpg',
-      '../../markup/img/apartment-01.jpg'
+      '../../markup/img/apartment-01.jpg',
+      '../../markup/img/apartment-012.jpg'
     ],
     isPremium:false,
     offerName:'Canal View Prinsengracht',
@@ -78,7 +81,8 @@ export const offer:OfferDescription [] = [
       '../../markup/img/apartment-01.jpg',
       '../../markup/img/room.jpg',
       '../../markup/img/studio-01.jpg',
-      '../../markup/img/apartment-01.jpg'
+      '../../markup/img/apartment-01.jpg',
+      '../../markup/img/apartment-012.jpg'
     ],
     isPremium:true,
     offerName:'Nice, cozy, warm big bed apartment',
