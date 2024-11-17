@@ -9,6 +9,8 @@ type MapProps = {
   city: City;
   points: Points;
   selectedPoint: Point | undefined;
+  height:number;
+  width:number;
 };
 
 const defaultCustomIcon = new Icon({
@@ -24,7 +26,7 @@ const currentCustomIcon = new Icon({
 });
 
 function Map(props: MapProps): JSX.Element {
-  const {city, points, selectedPoint} = props;
+  const {city, points, selectedPoint, height, width} = props;
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
@@ -54,7 +56,7 @@ function Map(props: MapProps): JSX.Element {
     }
   }, [map, points, selectedPoint, city.zoom]);
 
-  return <div style={{height: '500px'}} ref={mapRef}></div>;
+  return <div style={{ height: `${height}px`, width: `${width}px`, margin: '0 auto' }} ref={mapRef}></div>;
 }
 
 export default Map;
