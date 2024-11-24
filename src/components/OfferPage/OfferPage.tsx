@@ -1,24 +1,25 @@
 
-import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import {Link} from 'react-router-dom';
-import { OfferDescription } from '../../types/offerDescription.ts';
-import { review } from '../../types/review.ts';
-import ReviewForm from '../../components/ReviewForm/ReviewForm.tsx';
-import ReviewList from '../ReviewList/ReviewList.tsx';
-import OfferList from '../../components/OfferList/OfferList.tsx';
-import Map from '../Map/Map.tsx';
-import {Point} from '../../types/points.ts';
-import { MapProps } from '../MainPage/MainPage.tsx';
 
-function OfferPage({ offer, guestReview, MapProp}: {offer:OfferDescription[];guestReview:review[]; MapProp:MapProps}):JSX.Element{
-  const {city, points} = MapProp;
+import { useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+
+import { CityOfferDescription, OfferDescription } from '../../types/offerDescription.ts';
+import { review } from '../../types/review.ts';
+import { City, Point } from '../../types/points.ts';
+
+import ReviewForm from '../../components/ReviewForm/ReviewForm.tsx';
+import OfferList from '../../components/OfferList/OfferList.tsx';
+
+import Map from '../Map/Map.tsx';
+import ReviewList from '../ReviewList/ReviewList.tsx';
+
+function OfferPage({ offer, guestReview, city}: {offer:CityOfferDescription;guestReview:review[];city:City}):JSX.Element{
   const [selectedPoint, setSelectedPoint] = useState<Point | undefined>(undefined);
 
   const { id } = useParams<{ id: string }>();
-  const filteredOffer:OfferDescription[] = offer.filter((of) =>(of.id === id));
+  const filteredOffer:OfferDescription[] = offer.offer.filter((of) =>(of.id === id));
   const handleListItemHover = (listItemId: string) => {
-    const currentPoint = points.find((point) => point.id.toString() === listItemId);
+    const currentPoint = offer.offer.find((o) => o.id.toString() === listItemId)?.point;
     setSelectedPoint(currentPoint);
   };
   return (
@@ -150,17 +151,17 @@ function OfferPage({ offer, guestReview, MapProp}: {offer:OfferDescription[];gue
           <section className="offer__map map">
             <Map
               city={city}
-              points={points.filter((point) => (point.id !== filteredOffer[0].id))}
               selectedPoint={selectedPoint}
               height={579}
               width={1144}
+              offer={offer.offer.filter((o) => o.id !== filteredOffer[0].id)}
             />
           </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <OfferList offer={offer.filter((of) =>(of.id !== id))} onListItemHover={handleListItemHover} isMainPage = {false} />
+            <OfferList offer={offer.offer.filter((of) =>(of.id !== id))} onListItemHover={handleListItemHover} isMainPage = {false} />
           </section>
         </div>
       </main>
