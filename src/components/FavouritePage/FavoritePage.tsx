@@ -1,5 +1,5 @@
 
-import { CityOfferDescription  } from '../../types/offerDescription';
+import { CityOfferDescription } from '../../types/offerDescription';
 import {Link} from 'react-router-dom';
 
 interface FavouritePageProps {

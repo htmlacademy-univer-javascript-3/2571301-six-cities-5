@@ -85,7 +85,7 @@ function MainPage({ MapProps }: { MapProps:CityOfferDescription}):JSX.Element{
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-              <Map city={CITY.filter((c) => c.title === cityName)[0]} selectedPoint={selectedPoint } offer={MapProps.offer} height={407.27} width={512} />
+                <Map city={CITY.filter((c) => c.title === cityName)[0]} selectedPoint={selectedPoint } offer={MapProps.offer} height={407.27} width={512} />
               </section>
             </div>
           </div>
