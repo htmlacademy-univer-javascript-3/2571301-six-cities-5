@@ -7,7 +7,7 @@ import OfferList from '../OfferList/OfferList.tsx';
 import Map from '../Map/Map.tsx';
 import { CITY } from '../../mocks/city.ts';
 import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo.tsx';
-import { useAppSelector } from '../../hooks/index.ts';
+import { useAppSelector } from '../../hooks/index.tsx';
 import { Comment } from '../../types/comment.ts';
 import { AuthorizationStatus } from '../../mocks/login.ts';
 
