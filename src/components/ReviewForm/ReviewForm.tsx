@@ -1,7 +1,7 @@
 
 import React, { FormEvent, useRef, useState } from 'react';
 import { postComment } from '../../store/apiActions.ts';
-import { useAppDispatch, useAppSelector } from '../../hooks/index.tsx';
+import { useAppDispatch, useAppSelector } from '../../hooks/index.ts';
 
 function ReviewForm(){
   const [rating, setRatingStar] = useState<number>(0);
