@@ -1,6 +1,7 @@
+
 import { OfferDescription } from '../../types/offerDescription.ts';
 import { Link } from 'react-router-dom';
-import {MouseEvent} from 'react';
+import { MouseEvent} from 'react';
 import { fetchComments, fetchOffer, fetchOfferNeibourhood } from '../../store/apiActions.ts';
 import { store } from '../../store/index.ts';
 import React from 'react';
@@ -12,7 +13,6 @@ type MainPageCardProps = {
 };
 
 function MainPageCard({ offer, onListItemHover, isMainPage}: MainPageCardProps): JSX.Element {
-  const [cardId, setCardId] = useState('0');
   const handleListItemHover = (event: MouseEvent<HTMLLIElement>) => {
     event.preventDefault();
     onListItemHover((offer.id));
@@ -73,5 +73,4 @@ function MainPageCard({ offer, onListItemHover, isMainPage}: MainPageCardProps):
 
   );
 }
-
 export default React.memo(MainPageCard);

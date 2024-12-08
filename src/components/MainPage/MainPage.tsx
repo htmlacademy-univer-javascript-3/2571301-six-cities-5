@@ -13,7 +13,7 @@ import { useFilter } from '../../hooks/useFilter.ts';
 import { getAuthorizationStatus, getCity, getUserEmail } from '../../store/selectors.ts';
 
 function MainPage({ offerList }: { offerList: OfferDescription[] }): JSX.Element {
-  
+
   const [selectedPoint, setSelectedPoint] = useState<OfferDescription | undefined>(undefined);
   const [selectedFilter, setFilter] = useState<string>(FILTERS[0]);
   const cityName = useAppSelector(getCity);
@@ -51,7 +51,7 @@ function MainPage({ offerList }: { offerList: OfferDescription[] }): JSX.Element
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-          <CityList offerList={offerListMemo} />
+            <CityList offerList={offerListMemo} />
           </section>
         </div>
         <div className="cities">
