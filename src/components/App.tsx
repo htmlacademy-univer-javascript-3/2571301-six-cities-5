@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../mocks/login';
 import MainPage from './MainPage/MainPage';
@@ -9,8 +8,6 @@ import LoginPage from './LoginPage/LoginPage';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { useAppSelector } from '../hooks';
 import LoadingPage from './LoadingPage/LoadingPage.tsx';
-import HistoryRouter from './HistoryRouter/HistoryRouter.tsx';
-import browserHistory from '../services/browserHistory.ts';
 import { useMemo } from 'react';
 import { getAuthorizationStatus, getCity, getFavourites, getOffer, getOfferList, getUserEmail, isLoading } from '../store/selectors.ts';
 import MainEmpty from './MainEmpty/MainEmpty.tsx';
@@ -46,43 +43,41 @@ function App(): JSX.Element {
   }
 
   return(
-    <HistoryRouter history={browserHistory}>
-      <Routes>
-        <Route
-          path = {AppRoute.Main}
-          element={offerList.length > 0 ?
-            <MainPage offerList={offerList} /> :
-            <MainEmpty authStatus={authorizationStatus} cityName={cityName} userEmail={userEmail} />}
-        />
-        <Route
-          path = {AppRoute.Login}
-          element = {authStatus === AuthorizationStatus.Auth ? <MainPage offerList={offerList}/> : <LoginPage/>}
-        />
-        <Route
-          path = {AppRoute.Favourites}
-          element = {
-            <PrivateRoute authorizationStatus={authorizationStatus}>
-              {favouriteListMemo.length > 0 ? (
-                <FavouritePage
-                  offers = {favouriteListMemo}
-                  authStatus = {authorizationStatus}
-                  userEmail = {userEmail}
-                />) : (
-                <FavouritePageEmpty authStatus={authorizationStatus} userEmail={userEmail}/>)}
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path={`${AppRoute.Offer}`}
-          element={<OfferPage offer={offer} offerList={offerList} city={city} />}
-        />
-        <Route
-          path = '*'
-          element = {<NotFoundPage userEmail={userEmail} authStatus={authorizationStatus}/>}
-        />
+    <Routes>
+      <Route
+        path = {AppRoute.Main}
+        element={offerList.length > 0 ?
+          <MainPage offerList={offerList} /> :
+          <MainEmpty authStatus={authorizationStatus} cityName={cityName} userEmail={userEmail} />}
+      />
+      <Route
+        path = {AppRoute.Login}
+        element = {authStatus === AuthorizationStatus.Auth ? <MainPage offerList={offerList}/> : <LoginPage/>}
+      />
+      <Route
+        path = {AppRoute.Favourites}
+        element = {
+          <PrivateRoute authorizationStatus={authorizationStatus}>
+            {favouriteListMemo.length > 0 ? (
+              <FavouritePage
+                offers = {favouriteListMemo}
+                authStatus = {authorizationStatus}
+                userEmail = {userEmail}
+              />) : (
+              <FavouritePageEmpty authStatus={authorizationStatus} userEmail={userEmail}/>)}
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path={`${AppRoute.Offer}`}
+        element={<OfferPage offer={offer} offerList={offerList} city={city} />}
+      />
+      <Route
+        path = '*'
+        element = {<NotFoundPage userEmail={userEmail} authStatus={authorizationStatus}/>}
+      />
 
-      </Routes>
-    </HistoryRouter>
+    </Routes>
   );
 
 }
