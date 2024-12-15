@@ -9,9 +9,7 @@ describe('Component: FavouriteListCard', () => {
 
   it('should render correctly', () => {
     const expectedTestId = 'cardInfo';
-    const { withStoreComponent } = withStore(
-      <FavouriteListCard offer={mockOfferList[0]} handleFavouriteStatusChange={mockHandleChange} />
-    );
+    const {withStoreComponent} = withStore(<FavouriteListCard offer = {mockOfferList[0]} onFavouriteStatusChange={mockHandleChange}/>);
     const preparedComponent = withHistory(withStoreComponent);
 
     render(preparedComponent);
@@ -22,9 +20,7 @@ describe('Component: FavouriteListCard', () => {
   });
 
   it('should call handleFavouriteStatusChange when press button', async () => {
-    const { withStoreComponent } = withStore(
-      <FavouriteListCard offer={mockOfferList[0]} handleFavouriteStatusChange={mockHandleChange} />
-    );
+    const {withStoreComponent} = withStore(<FavouriteListCard offer = {mockOfferList[0]} onFavouriteStatusChange={mockHandleChange}/>);
     const preparedComponent = withHistory(withStoreComponent);
 
     render(preparedComponent);
