@@ -135,7 +135,7 @@ describe('Application Routing', () => {
 
   it('should render "OfferPage" when offer is in offerList', () => {
     const withHistoryComponent = withHistory(<App />, mockHistory);
-    const expectedOfferId = datatype.string();
+    const expectedOfferId = '2';
 
     const { withStoreComponent } = withStore(withHistoryComponent, makeFakeStore({
       Data:{
@@ -237,7 +237,7 @@ describe('Application Routing', () => {
   it('should render "NotFoundPage" when route is incorrect', () => {
     const withHistoryComponent = withHistory(<App />, mockHistory);
     const { withStoreComponent } = withStore(withHistoryComponent, makeFakeStore());
-    const unknownRoute = datatype.string();
+    const unknownRoute = 'unknownRoute';
     mockHistory.push(`/${unknownRoute}`);
     const expectedText = 'Error 404. Page not found.';
 

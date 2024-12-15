@@ -1,23 +1,23 @@
-
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
-import { postComment } from '../../store/apiActions.ts';
-import { useAppDispatch, useAppSelector } from '../../hooks/index.ts';
+import { useAppSelector } from '../../hooks/index.ts';
 import { offerIsLoadingStatus } from '../../store/selectors.ts';
+import { CommentPost } from '../../types/comment.ts';
 
-function ReviewForm(){
+function ReviewForm({onFormSubmit}:{onFormSubmit: (commentPayload : CommentPost) => void}){
   const [rating, setRatingStar] = useState<number>(0);
   const [isFormDisabled, setFormDisabled] = useState<boolean>(false);
 
   const [isButtonDisable, setButtonDisable] = useState<boolean>(true);
+
   const commentRef = useRef<HTMLTextAreaElement | null>(null);
   const isReviewLoading = useAppSelector(offerIsLoadingStatus);
 
-  const dispatch = useAppDispatch();
   const offerId = useAppSelector((state) => state.Data.offer.id);
 
   const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRatingStar(+(event.target.value));
   };
+
 
   const handleButtonStatus = () => {
     if (commentRef.current){
@@ -28,20 +28,19 @@ function ReviewForm(){
       }
     }
   };
+
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     setFormDisabled(true);
 
-    const submitComment = async () => {
+    const submitComment = () => {
       if (commentRef.current && rating > 0) {
         try {
-          await dispatch(
-            postComment({
-              rating: rating,
-              comment: commentRef.current.value,
-              id: offerId,
-            })
-          ).unwrap();
+          onFormSubmit({
+            rating : rating,
+            comment : commentRef.current.value,
+            id : offerId,
+          });
 
           setRatingStar(0);
           if (commentRef.current) {
@@ -54,8 +53,15 @@ function ReviewForm(){
     };
     submitComment();
   };
+
   useEffect(()=>{
-    handleButtonStatus();
+    let isMounted = true;
+    if (isMounted){
+      handleButtonStatus();
+    }
+    return () => {
+      isMounted = false;
+    };
   },[rating, isReviewLoading]);
   return(
 
@@ -63,7 +69,7 @@ function ReviewForm(){
       onSubmit={handleSubmit} data-testid = "review-form"
     >
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
-      <div className="reviews__rating-form form__rating">
+      <div className="reviews__rating-form form__rating" data-testid = 'stars-container'>
         <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio"
           onChange = {handleRatingChange}
           disabled = {isFormDisabled}
@@ -77,6 +83,7 @@ function ReviewForm(){
         <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio"
           onChange = {handleRatingChange}
           disabled = {isFormDisabled}
+
         />
         <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
           <svg className="form__star-image" width="37" height="33">
@@ -87,6 +94,7 @@ function ReviewForm(){
         <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio"
           onChange = {handleRatingChange}
           disabled = {isFormDisabled}
+
         />
         <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
           <svg className="form__star-image" width="37" height="33">
@@ -97,6 +105,7 @@ function ReviewForm(){
         <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio"
           onChange = {handleRatingChange}
           disabled = {isFormDisabled}
+
         />
         <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
           <svg className="form__star-image" width="37" height="33">
@@ -107,6 +116,7 @@ function ReviewForm(){
         <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio"
           onChange = {handleRatingChange}
           disabled = {isFormDisabled}
+
         />
         <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
           <svg className="form__star-image" width="37" height="33">
@@ -117,6 +127,7 @@ function ReviewForm(){
       <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved"
         ref = {commentRef} onChange={handleButtonStatus}
         disabled = {isFormDisabled}
+
       >
       </textarea>
       <div className="reviews__button-wrapper">
@@ -128,5 +139,4 @@ function ReviewForm(){
     </form>
   );
 }
-
 export default React.memo(ReviewForm);

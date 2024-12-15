@@ -30,7 +30,7 @@ export const mockOfferList = [
       longitude: datatype.number(),
       zoom: datatype.number(),
     },
-    isFavorite: datatype.boolean(),
+    isFavorite: true,
     isPremium: datatype.boolean(),
     rating: datatype.number(),
     previewImage: datatype.string(),
