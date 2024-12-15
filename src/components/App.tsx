@@ -13,7 +13,7 @@ import { getAuthorizationStatus, getCity, getFavourites, getOffer, getOfferList,
 import MainEmpty from './MainEmpty/MainEmpty.tsx';
 import FavouritePageEmpty from './FavouritePageEmpty/FavouritePageEmpty.tsx';
 import { useAppDispatch } from '../hooks';
-import { loginAction } from '../store/apiActions.ts';
+import { loginAction, setFavourites } from '../store/apiActions.ts';
 
 function App(): JSX.Element {
 
@@ -40,28 +40,38 @@ function App(): JSX.Element {
   const favouriteList = useAppSelector(getFavourites);
   const favouriteListMemo = useMemo(() => favouriteList, [favouriteList]);
 
+
   if (authorizationStatus === AuthorizationStatus.Unknown || isDataLoading) {
     return (
       <LoadingPage />
     );
   }
-
-  const onLoginFormSubmit = (login:string, password:string) => {
+  const onLoginFormSubmit = (login : string, password:string) => {
     dispatch(loginAction({
       login: login,
       password: password
     }));
   };
 
+  const onFavouriteClick = (id : string, status : number, isOfferPage : boolean) => {
+    const favouriteInfo = {
+      offerId:id,
+      status: status,
+      isOfferPage: isOfferPage
+    };
+    dispatch(setFavourites(favouriteInfo));
+  };
   return(
     <Routes>
       <Route
         path = {AppRoute.Main}
-        element = {authStatus === AuthorizationStatus.Auth ? <MainPage offerList={offerList}/> : <LoginPage onLoginFormSubmit={onLoginFormSubmit}/>}
+        element={offerList.length > 0 ?
+          <MainPage offerList={offerList} /> :
+          <MainEmpty authStatus={authorizationStatus} cityName={cityName} userEmail={userEmail} />}
       />
       <Route
         path = {AppRoute.Login}
-        element = {authStatus === AuthorizationStatus.Auth ? <MainPage offerList={offerList}/> : <LoginPage/>}
+        element = {authStatus === AuthorizationStatus.Auth ? <MainPage offerList={offerList}/> : <LoginPage onLoginFormSubmit={onLoginFormSubmit}/>}
       />
       <Route
         path = {AppRoute.Favourites}
@@ -79,7 +89,7 @@ function App(): JSX.Element {
       />
       <Route
         path={`${AppRoute.Offer}`}
-        element={<OfferPage offer={offer} offerList={offerList} city={city} />}
+        element={<OfferPage offer={offer} offerList={offerList} city={city} onFavouriteClick = {onFavouriteClick}/>}
       />
       <Route
         path = '*'

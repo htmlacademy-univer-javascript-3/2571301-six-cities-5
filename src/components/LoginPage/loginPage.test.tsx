@@ -24,6 +24,25 @@ describe('Component: LoginPage', () => {
     expect(expectedLogin).toBeInTheDocument();
 
   });
+  it('dont send post request on server if password is invalid', async () => {
+
+    const { withStoreComponent } = withStore(<LoginPage onLoginFormSubmit={mockHandleChange} />);
+    const preparedComponent = withHistory(withStoreComponent);
+
+    render(preparedComponent);
+
+    const emailElement = screen.getByPlaceholderText('Email');
+    const passwordElement = screen.getByPlaceholderText('Password');
+    const buttonElement = screen.getByRole('button', { name: /sign in/i });
+
+    await userEvent.type(emailElement, 'Oliver.conner@gmail.com');
+    await userEvent.type(passwordElement, 'p');
+
+    await userEvent.click(buttonElement);
+
+    expect(mockHandleChange).not.toHaveBeenCalled();
+
+  });
   it('should handle button click when password and email are correct', async () => {
 
     const { withStoreComponent } = withStore(<LoginPage onLoginFormSubmit={mockHandleChange} />);
@@ -40,30 +59,8 @@ describe('Component: LoginPage', () => {
 
     expect(emailElement).toHaveValue('Oliver.conner@gmail.com');
     expect(passwordElement).toHaveValue('password1');
-
     await userEvent.click(buttonElement);
-
     expect(mockHandleChange).toHaveBeenCalledWith('Oliver.conner@gmail.com', 'password1');
     expect(mockHandleChange).toHaveBeenCalledTimes(1);
-  });
-
-  it('should show an error toast if password is invalid', async () => {
-
-    const { withStoreComponent } = withStore(<LoginPage onLoginFormSubmit={mockHandleChange} />);
-    const preparedComponent = withHistory(withStoreComponent);
-
-    render(preparedComponent);
-
-    const emailElement = screen.getByPlaceholderText('Email');
-    const passwordElement = screen.getByPlaceholderText('Password');
-    const buttonElement = screen.getByRole('button', { name: /sign in/i });
-
-    await userEvent.type(emailElement, 'Oliver.conner@gmail.com');
-    await userEvent.type(passwordElement, 'password');
-
-    await userEvent.click(buttonElement);
-
-    expect(mockHandleChange).not.toHaveBeenCalled();
-
   });
 });
