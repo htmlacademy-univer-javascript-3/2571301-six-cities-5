@@ -1,5 +1,5 @@
 import { MemoryHistory, createMemoryHistory } from 'history';
-import HistoryRouter from '../components/HistoryRouter/HistoryRouter.tsx';
+import HistoryRouter from '../components/history-router/history-router.tsx';
 import { HelmetProvider } from 'react-helmet-async';
 import { MockStore, configureMockStore } from '@jedmao/redux-mock-store';
 import { Provider } from 'react-redux';
@@ -9,7 +9,7 @@ import MockAdapter from 'axios-mock-adapter';
 import { State } from '../types/state';
 import { createAPI } from '../services/api';
 import { AppThunkDispatch } from './mocks.ts';
-import { dataProcessInitialStateMock, mockUser } from '../mocks/storeMock.ts';
+import { dataProcessInitialStateMock, mockUser } from '../mocks/store-mocks.ts';
 
 export function withHistory(component: JSX.Element, history?: MemoryHistory) {
   const memoryHistory = history ?? createMemoryHistory();

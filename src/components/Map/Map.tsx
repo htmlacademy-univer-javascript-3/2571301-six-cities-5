@@ -4,10 +4,10 @@ import { useRef, useEffect } from 'react';
 import { Icon, Marker, layerGroup } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-import useMap from '../../hooks/useMap';
+import useMap from '../../hooks/use-map';
 
 import { City } from '../../types/points';
-import { OfferDescription } from '../../types/offerDescription';
+import { OfferDescription } from '../../types/offer-description';
 
 import React from 'react';
 

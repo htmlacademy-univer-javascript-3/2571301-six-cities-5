@@ -1,7 +1,7 @@
 import { State } from './index.ts';
 import { AuthorizationStatus } from '../mocks/login';
-import { NAMESPACE } from '../mocks/sliceHeaders';
-import { OfferDescription, OfferIdDescription } from '../types/offerDescription.ts';
+import { NAMESPACE } from '../mocks/slice-headers.ts';
+import { OfferDescription, OfferIdDescription } from '../types/offer-description.ts';
 import { CommentList } from '../types/comment.ts';
 
 export const getCity = (state: Pick<State, NAMESPACE.CITY>): string => state[NAMESPACE.CITY].city;

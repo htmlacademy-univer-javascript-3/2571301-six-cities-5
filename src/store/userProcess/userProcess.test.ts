@@ -1,7 +1,7 @@
 import { datatype, internet } from 'faker';
 import { AuthorizationStatus } from '../../mocks/login';
-import { fakeUser, initialStateUserMock, mockUser } from '../../mocks/storeMock';
-import { checkAuthAction, loginAction, logoutAction } from '../apiActions';
+import { fakeUser, initialStateUserMock, mockUser } from '../../mocks/store-mocks';
+import { checkAuthAction, loginAction, logoutAction } from '../api-actions';
 import { userProcess } from './userProcess';
 
 describe('User slice', () => {

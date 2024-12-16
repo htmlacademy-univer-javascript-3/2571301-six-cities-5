@@ -1,9 +1,9 @@
 import { MockStore, configureMockStore } from '@jedmao/redux-mock-store';
 import { redirect } from './ridirect.ts';
 import { AnyAction } from '@reduxjs/toolkit';
-import { redirectToRoute } from '../cityAction.ts';
+import { redirectToRoute } from '../city-action.ts';
 import { AppRoute } from '../../mocks/login.ts';
-import browserHistory from '../../services/browserHistory';
+import browserHistory from '../../services/browser-history.ts';
 import { State } from '../../types/state.ts';
 
 vi.mock('../../browser-history', () => ({

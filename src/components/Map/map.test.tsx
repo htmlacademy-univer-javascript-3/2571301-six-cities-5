@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, vi, beforeEach } from 'vitest';
-import Map from './Map';
+import Map from './Map.tsx';
 
 import { CITY } from '../../mocks/city.ts';
-import { mockOfferList } from '../../mocks/storeMock';
+import { mockOfferList } from '../../mocks/store-mocks.ts';
 
 
 describe('Map Component', () => {

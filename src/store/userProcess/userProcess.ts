@@ -1,8 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
-import { NAMESPACE } from '../../mocks/sliceHeaders.ts';
+import { NAMESPACE } from '../../mocks/slice-headers.ts';
 import {AuthorizationStatus} from '../../mocks/login.ts';
 import {UserProcess} from '../../types/state';
-import {checkAuthAction, loginAction, logoutAction} from '../apiActions';
+import {checkAuthAction, loginAction, logoutAction} from '../api-actions.ts';
 
 const initialState: UserProcess = {
   authorizationStatus: AuthorizationStatus.Unknown,

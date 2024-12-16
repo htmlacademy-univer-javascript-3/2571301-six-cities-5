@@ -1,9 +1,9 @@
 import { AuthorizationStatus } from '../mocks/login.ts';
 import { CityProcess, DataProcess, UserProcess } from '../types/state.ts';
-import { NAMESPACE } from '../mocks/sliceHeaders';
+import { NAMESPACE } from '../mocks/slice-headers.ts';
 import { getAuthorizationStatus, getCity, getComments, getFavourites, getOffer, getOfferList, getOffersNearby, getUserEmail, isLoading, offerIsLoadingStatus} from './selectors';
 import { datatype } from 'faker';
-import { dataProcessInitialStateMock, mockCommentList, mockOffer, mockOfferList, mockUser } from '../mocks/storeMock.ts';
+import { dataProcessInitialStateMock, mockCommentList, mockOffer, mockOfferList, mockUser } from '../mocks/store-mocks.ts';
 
 describe('UserProcess selectors', () => {
   it('should return authorization status, email from state', () => {

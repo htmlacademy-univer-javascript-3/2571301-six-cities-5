@@ -3,7 +3,7 @@ import {toast} from 'react-toastify';
 import { AxiosError} from 'axios';
 import {getToken} from './token';
 import { StatusCodes } from 'http-status-codes';
-import { APIRoute } from '../mocks/apiRoutes';
+import { APIRoute } from '../mocks/api-routes';
 
 type DetailMessageType = {
   type: string;
