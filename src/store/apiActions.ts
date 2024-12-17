@@ -1,14 +1,14 @@
 
-import {AxiosInstance} from 'axios';
-import {createAsyncThunk} from '@reduxjs/toolkit';
-import {AppDispatch, State} from '../types/state.js';
-import {OfferDescription, OfferIdDescription} from '../types/offerDescription.js';
-import {redirectToRoute} from './cityAction.js';
-import {APIRoute} from '../mocks/apiRoutes.js';
-import {saveToken, dropToken, getToken} from '../services/token.ts';
+import { AxiosInstance } from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { AppDispatch, State } from '../types/state.js';
+import { OfferDescription, OfferIdDescription } from '../types/offerDescription.js';
+import { redirectToRoute } from './cityAction.js';
+import { APIRoute } from '../mocks/apiRoutes.js';
+import { saveToken, dropToken, getToken } from '../services/token.ts';
 import { AuthData } from '../types/authData.ts';
-import {loginVerification, UserData} from '../types/userData.ts';
-import {AppRoute} from '../mocks/login.ts';
+import { LoginVerification, UserData } from '../types/userData.ts';
+import { AppRoute } from '../mocks/login.ts';
 import { Comment, CommentList, CommentPost } from '../types/comment.ts';
 
 export const fetchOffers = createAsyncThunk<OfferDescription[], undefined, {
@@ -42,7 +42,7 @@ export const checkAuthAction = createAsyncThunk<string, string, {
 }>(
   'user/checkAuth',
   async (token, {extra: api}) => {
-    const {data: {email}} = await api.get<loginVerification>(APIRoute.Login,{params:{'X-Token':token}});
+    const {data: {email}} = await api.get<LoginVerification>(APIRoute.Login,{params:{'X-Token':token}});
     return email;
   },
 );

@@ -4,7 +4,7 @@ import ReviewList from '../ReviewList/ReviewList.tsx';
 import ReviewForm from '../ReviewForm/ReviewForm.tsx';
 import OfferList from '../OfferList/OfferList.tsx';
 import Map from '../Map/Map.tsx';
-import { CITY } from '../../mocks/city.ts';
+import { CITIES } from '../../mocks/city.ts';
 import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo.tsx';
 import { useAppSelector } from '../../hooks/index.ts';
 import { CommentList, CommentPost } from '../../types/comment.ts';
@@ -115,8 +115,6 @@ function OfferPage({ offer, offerList, city, onFavouriteClick}: {offer:OfferIdDe
                 <li className="offer__feature offer__feature--entire">
                   Max {offer.maxAdults} Adults
                 </li>
-                )
-
               </ul>
               <div className="offer__price">
                 <b className="offer__price-value">&euro;{offer.price}</b>
@@ -153,7 +151,7 @@ function OfferPage({ offer, offerList, city, onFavouriteClick}: {offer:OfferIdDe
                 </div>
               </div>
               <section className="offer__reviews reviews" data-testid = "reviews">
-                <ReviewList guestReview = {[...comments].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())}/>
+                <ReviewList guestReviews = {[...comments].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())}/>
                 {authStatus === AuthorizationStatus.Auth ? <ReviewForm onFormSubmit={onFormSubmit}/> : null}
               </section>
 
@@ -161,7 +159,7 @@ function OfferPage({ offer, offerList, city, onFavouriteClick}: {offer:OfferIdDe
           </div>
           <section className="offer__map map" data-testid = "map">
             <Map
-              city={CITY.filter((c) => c.title === city)[0]}
+              city={CITIES.filter((c) => c.title === city)[0]}
               selectedOffer={offerList.filter((i) => i.id === offer?.id)[0] }
               height={579}
               width={1144}

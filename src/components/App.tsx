@@ -14,6 +14,9 @@ import MainEmpty from './MainEmpty/MainEmpty.tsx';
 import FavouritePageEmpty from './FavouritePageEmpty/FavouritePageEmpty.tsx';
 import { useAppDispatch } from '../hooks';
 import { loginAction, setFavourites } from '../store/apiActions.ts';
+import { changeCityAction } from '../store/cityProcess.ts';
+import { CITIES } from '../mocks/city.ts';
+import { redirectToRoute } from '../store/cityAction.ts';
 
 function App(): JSX.Element {
 
@@ -46,11 +49,17 @@ function App(): JSX.Element {
       <LoadingPage />
     );
   }
+
   const onLoginFormSubmit = (login : string, password:string) => {
     dispatch(loginAction({
       login: login,
       password: password
     }));
+  };
+
+  const onRandomCityClick = (cityNumber: number) => {
+    dispatch(changeCityAction(CITIES[cityNumber].title));
+    dispatch(redirectToRoute(AppRoute.Main));
   };
 
   const onFavouriteClick = (id : string, status : number, isOfferPage : boolean) => {
@@ -71,7 +80,7 @@ function App(): JSX.Element {
       />
       <Route
         path = {AppRoute.Login}
-        element = {authStatus === AuthorizationStatus.Auth ? <MainPage offerList={offerList}/> : <LoginPage onLoginFormSubmit={onLoginFormSubmit}/>}
+        element = {authStatus === AuthorizationStatus.Auth ? <MainPage offerList={offerList}/> : <LoginPage onLoginFormSubmit={onLoginFormSubmit} onRandomCityClick={onRandomCityClick}/>}
       />
       <Route
         path = {AppRoute.Favourites}

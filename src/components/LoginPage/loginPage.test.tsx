@@ -4,12 +4,13 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Component: LoginPage', () => {
-  const mockHandleChange = vi.fn();
+  const mockFormSubmit = vi.fn();
+  const mockRandomCityClick = vi.fn();
   it('should render correctly', () => {
     const expectedFormTestId = 'login-form';
     const expectedEmailTestId = 'email-input';
     const expectedLoginTestId = 'password-input';
-    const {withStoreComponent} = withStore(<LoginPage onLoginFormSubmit={mockHandleChange} />);
+    const {withStoreComponent} = withStore(<LoginPage onLoginFormSubmit={mockFormSubmit} onRandomCityClick={mockRandomCityClick}/>);
     const preparedComponent = withHistory(withStoreComponent);
 
     render(preparedComponent);
@@ -26,7 +27,7 @@ describe('Component: LoginPage', () => {
   });
   it('dont send post request on server if password is invalid', async () => {
 
-    const { withStoreComponent } = withStore(<LoginPage onLoginFormSubmit={mockHandleChange} />);
+    const {withStoreComponent} = withStore(<LoginPage onLoginFormSubmit={mockFormSubmit} onRandomCityClick={mockRandomCityClick}/>);
     const preparedComponent = withHistory(withStoreComponent);
 
     render(preparedComponent);
@@ -40,12 +41,13 @@ describe('Component: LoginPage', () => {
 
     await userEvent.click(buttonElement);
 
-    expect(mockHandleChange).not.toHaveBeenCalled();
+    expect(mockFormSubmit).not.toHaveBeenCalled();
+    expect(mockRandomCityClick).not.toHaveBeenCalled();
 
   });
   it('should handle button click when password and email are correct', async () => {
 
-    const { withStoreComponent } = withStore(<LoginPage onLoginFormSubmit={mockHandleChange} />);
+    const { withStoreComponent } = withStore(<LoginPage onLoginFormSubmit={mockFormSubmit} onRandomCityClick={mockRandomCityClick}/>);
     const preparedComponent = withHistory(withStoreComponent);
 
     render(preparedComponent);
@@ -59,8 +61,23 @@ describe('Component: LoginPage', () => {
 
     expect(emailElement).toHaveValue('Oliver.conner@gmail.com');
     expect(passwordElement).toHaveValue('password1');
+
     await userEvent.click(buttonElement);
-    expect(mockHandleChange).toHaveBeenCalledWith('Oliver.conner@gmail.com', 'password1');
-    expect(mockHandleChange).toHaveBeenCalledTimes(1);
+
+    expect(mockFormSubmit).toHaveBeenCalledWith('Oliver.conner@gmail.com', 'password1');
+    expect(mockFormSubmit).toHaveBeenCalledTimes(1);
   });
+
+  it('should handle randomCityClick', async () => {
+
+    const { withStoreComponent } = withStore(<LoginPage onLoginFormSubmit={mockFormSubmit} onRandomCityClick={mockRandomCityClick}/>);
+    const preparedComponent = withHistory(withStoreComponent);
+
+    render(preparedComponent);
+    const spanElement = screen.getByTestId('randomCitySpan');
+    await userEvent.click(spanElement);
+
+    expect(mockRandomCityClick).toHaveBeenCalledTimes(1);
+  });
+
 });

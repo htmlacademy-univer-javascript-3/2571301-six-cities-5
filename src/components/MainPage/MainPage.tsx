@@ -2,7 +2,7 @@ import { useState, useMemo, useCallback } from 'react';
 import OfferList from '../OfferList/OfferList.tsx';
 import Map from '../Map/Map';
 import { useAppSelector } from '../../hooks';
-import { CITY } from '../../mocks/city.ts';
+import { CITIES } from '../../mocks/city.ts';
 import CityList from '../CityList/CityList.tsx';
 import { OfferDescription } from '../../types/offerDescription.ts';
 import SortFilter from '../SortFilter/SortFilter.tsx';
@@ -20,7 +20,7 @@ function MainPage({ offerList }: { offerList: OfferDescription[] }): JSX.Element
   const userEmail = useAppSelector(getUserEmail);
   const sortedOffers = useFilter(offerList, selectedFilter);
 
-  const city = useMemo(() => CITY.filter((c) => c.title === cityName)[0],[cityName]);
+  const city = useMemo(() => CITIES.filter((c) => c.title === cityName)[0],[cityName]);
   const offerListMap = useMemo(() => offerList,[offerList]);
   const selectedOffer = useMemo(() => offerList.filter((i) => i.id === selectedPoint?.id)[0],[selectedPoint, offerList]);
   const sortedOffersMemo = useMemo(() => sortedOffers, [sortedOffers]);

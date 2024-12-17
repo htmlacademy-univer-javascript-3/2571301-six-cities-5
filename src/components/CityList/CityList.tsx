@@ -1,7 +1,7 @@
-import { CITY } from '../../mocks/city.ts';
+import { CITIES } from '../../mocks/city.ts';
 import { changeCityAction } from '../../store/cityProcess.ts';
-import {useAppDispatch, useAppSelector} from '../../hooks';
-import {Link} from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { Link } from 'react-router-dom';
 import { getCity } from '../../store/selectors.ts';
 
 function CityList(){
@@ -10,15 +10,15 @@ function CityList(){
 
   return (
     <ul className="locations__list tabs__list" data-testid = 'cityList'>
-      {CITY.map((c)=>(
+      {CITIES.map((c)=>(
         <li key = {c.lat} className="locations__item">
-          <a className={c.title === cityName ? 'locations__item-link tabs__item tabs__item--active' : 'locations__item-link tabs__item'}
+          <Link to = "/" className={c.title === cityName ? 'locations__item-link tabs__item tabs__item--active' : 'locations__item-link tabs__item'}
             onClick = {()=>{
               dispatch(changeCityAction((c.title)));
             }}
           >
-            <Link to = "/"><span>{c.title}</span></Link>
-          </a>
+            <span>{c.title}</span>
+          </Link>
         </li>
       ))}
     </ul>
