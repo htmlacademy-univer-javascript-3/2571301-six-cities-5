@@ -1,21 +1,21 @@
-
-import { OfferDescription } from '../../types/offerDescription.ts';
-import { Link } from 'react-router-dom';
-import { MouseEvent} from 'react';
-import { fetchComments, fetchOffer, fetchOfferNeibourhood, setFavourites } from '../../store/apiActions.ts';
-import { store } from '../../store/index.ts';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { MouseEvent } from 'react';
 import { useAppSelector } from '../../hooks/index.ts';
 import { getAuthorizationStatus } from '../../store/selectors.ts';
+import { fetchComments, fetchOffer, fetchOfferNeibourhood } from '../../store/apiActions.ts';
+import { store } from '../../store/index.ts';
 import { AppRoute, AuthorizationStatus } from '../../mocks/login.ts';
+import { OfferDescription } from '../../types/offerDescription.ts';
 
 type MainPageCardProps = {
   offer: OfferDescription;
   onListItemHover: (listItemName: string) => void;
   isMainPage:boolean;
+  onFavouriteClick: (id:string, status:number, isOfferPage:boolean) => void;
 };
 
-function MainPageCard({ offer, onListItemHover, isMainPage}: MainPageCardProps): JSX.Element {
+function MainPageCard({ offer, onListItemHover, isMainPage, onFavouriteClick}: MainPageCardProps): JSX.Element {
   const authStatus = useAppSelector(getAuthorizationStatus);
   const handleListItemHover = (event: MouseEvent<HTMLLIElement>) => {
     event.preventDefault();
@@ -26,9 +26,9 @@ function MainPageCard({ offer, onListItemHover, isMainPage}: MainPageCardProps):
     const favouriteInfo = {
       offerId:offer.id,
       status: offer.isFavorite ? 0 : 1,
-      isOfferPage: false
+      isOfferPage: !isMainPage
     };
-    store.dispatch(setFavourites(favouriteInfo));
+    onFavouriteClick(favouriteInfo.offerId, favouriteInfo.status, favouriteInfo.isOfferPage);
   };
   const handleListItemLeave = (event: MouseEvent<HTMLLIElement>) => {
     event.preventDefault();
@@ -56,15 +56,14 @@ function MainPageCard({ offer, onListItemHover, isMainPage}: MainPageCardProps):
           <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place image"/>
         </a>
       </div>
-      <div className="place-card__info">
-
+      <div className="place-card__info" data-testid = 'card-info'>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{offer.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           {(authStatus === AuthorizationStatus.Auth) ?
-            <button className={offer.isFavorite ? 'place-card__bookmark-button place-card__bookmark-button--active button' : 'place-card__bookmark-button button'} type="button" onClick={handleFavouriteClick}>
+            <button className={offer.isFavorite ? 'place-card__bookmark-button place-card__bookmark-button--active button' : 'place-card__bookmark-button button'} type="button" onClick={handleFavouriteClick} data-testid = 'favourite-button'>
               <svg className="place-card__bookmark-icon" width="18" height="19">
                 <use xlinkHref="#icon-bookmark"/>
               </svg>

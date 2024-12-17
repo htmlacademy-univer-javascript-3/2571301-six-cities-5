@@ -1,9 +1,8 @@
-
-import {Link} from 'react-router-dom';
-import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AuthorizationStatus } from '../../mocks/login';
 import CityList from '../CityList/CityList';
+import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo';
 
 function NotFoundPage({userEmail, authStatus}:{userEmail:string; authStatus:AuthorizationStatus}):JSX.Element{
   return(

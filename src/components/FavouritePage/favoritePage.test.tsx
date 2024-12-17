@@ -1,9 +1,9 @@
-import FavouritePage from './FavoritePage.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { render, screen } from '@testing-library/react';
-import { mockOfferList } from '../../mocks/storeMock.ts';
 import { datatype } from 'faker';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
+import { mockOfferList } from '../../mocks/storeMock.ts';
 import { AuthorizationStatus } from '../../mocks/login.ts';
+import FavouritePage from './FavoritePage.tsx';
 
 describe('Component: FavouritePage', () => {
   it('should render correctly', () => {

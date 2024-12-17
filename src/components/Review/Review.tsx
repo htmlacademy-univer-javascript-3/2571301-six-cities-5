@@ -1,5 +1,5 @@
-import { Comment } from '../../types/comment';
 import React from 'react';
+import { Comment } from '../../types/comment';
 
 function Review({guestReview}:{guestReview:Comment}){
   return (

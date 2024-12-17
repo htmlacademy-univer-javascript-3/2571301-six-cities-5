@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import OfferPage from './OfferPage';
+import userEvent from '@testing-library/user-event';
+import { datatype } from 'faker';
 import { withHistory, withStore } from '../../utils/mockComponent';
 import { makeFakeStore } from '../../utils/mocks';
 import { AuthorizationStatus } from '../../mocks/login';
 import { OfferDescription, OfferIdDescription } from '../../types/offerDescription.ts';
-import { datatype } from 'faker';
-import userEvent from '@testing-library/user-event';
+import OfferPage from './OfferPage';
 
 import * as ReactRouterDom from 'react-router-dom';
 

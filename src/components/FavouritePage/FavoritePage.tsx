@@ -1,8 +1,7 @@
-
 import { OfferDescription } from '../../types/offerDescription';
-import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo';
 import { AuthorizationStatus } from '../../mocks/login';
 import FavouriteList from '../FavoriteList/FavoriteList';
+import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo';
 
 interface FavouritePageProps {
   offers: OfferDescription[];

@@ -1,8 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
 import { NAMESPACE } from '../../mocks/sliceHeaders.ts';
-import {AuthorizationStatus} from '../../mocks/login.ts';
-import {UserProcess} from '../../types/state';
-import {checkAuthAction, loginAction, logoutAction} from '../apiActions';
+import { AuthorizationStatus } from '../../mocks/login.ts';
+import { UserProcess } from '../../types/state';
+import { checkAuthAction, loginAction, logoutAction } from '../apiActions';
 
 const initialState: UserProcess = {
   authorizationStatus: AuthorizationStatus.Unknown,
@@ -52,7 +52,5 @@ export const userProcess = createSlice({
       .addCase(logoutAction.pending, (state)=> {
         state.isUserDataLoading = true;
       });
-
-
   }
 });

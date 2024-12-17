@@ -34,7 +34,6 @@ const CommentForm = () => {
           </React.Fragment>
         ))}
       </div>
-
       <textarea
         className="reviews__textarea form__textarea"
         id="review"
@@ -43,7 +42,6 @@ const CommentForm = () => {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay

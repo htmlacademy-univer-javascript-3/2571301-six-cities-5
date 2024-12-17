@@ -1,17 +1,19 @@
-import { createAPI } from '../services/api';
+import { Action } from 'redux';
+
+// import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
 import { configureMockStore } from '@jedmao/redux-mock-store';
-import { Action } from 'redux';
-import { AppThunkDispatch, extractActionsTypes } from '../utils/mocks.ts';
-import { APIRoute } from '../mocks/apiRoutes';
-import { checkAuthAction, fetchComments, fetchOffer, fetchOfferNeibourhood, fetchOffers, getFavourites, loginAction, logoutAction, postComment, setFavourites } from './apiActions';
-import { datatype, internet } from 'faker';
-import { State } from '../types/state.ts';
-import { commentMock, dataProcessInitialStateMock, initialStateUserMock, mockOffer, mockOfferList, setFavouriteMock } from '../mocks/storeMock.ts';
-import { redirectToRoute } from './cityAction.ts';
-import * as tokenStorage from '../services/token';
 
+import { createAPI } from '../services/api';
+import { APIRoute } from '../mocks/apiRoutes';
+import { AppThunkDispatch, extractActionsTypes } from '../utils/mocks.ts';
+import { checkAuthAction, fetchComments, fetchOffer, fetchOfferNeibourhood, fetchOffers, getFavourites, loginAction, logoutAction, postComment, setFavourites } from './apiActions';
+import { commentMock, dataProcessInitialStateMock, initialStateUserMock, mockOffer, mockOfferList, setFavouriteMock } from '../mocks/storeMock.ts';
+import { datatype, internet } from 'faker';
+import { redirectToRoute } from './cityAction.ts';
+import { State } from '../types/state.ts';
+import * as tokenStorage from '../services/token';
 
 describe('Async actions',()=>{
   const axios = createAPI();

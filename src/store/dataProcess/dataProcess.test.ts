@@ -1,9 +1,9 @@
-import { emptyOffer } from '../../mocks/offer.ts';
 import { dataProcessInitialStateMock, mockCommentList, mockOffer, mockOfferList } from '../../mocks/storeMock.ts';
-import {dataProcess} from './dataProcess.ts';
-import '@testing-library/jest-dom';
+import { emptyOffer } from '../../mocks/offer.ts';
+import { dataProcess } from './dataProcess.ts';
 import { fetchComments, fetchOffer, fetchOfferNeibourhood, fetchOffers, getFavourites } from '../apiActions.ts';
 import { datatype } from 'faker';
+import '@testing-library/jest-dom';
 
 describe('Data slice', () => {
   it('should return initial state with empty action', () => {

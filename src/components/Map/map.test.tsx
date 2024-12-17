@@ -1,10 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, vi, beforeEach } from 'vitest';
-import Map from './Map';
-
-import { CITY } from '../../mocks/city.ts';
+import { CITIES } from '../../mocks/city.ts';
 import { mockOfferList } from '../../mocks/storeMock';
-
+import Map from './Map';
 
 describe('Map Component', () => {
 
@@ -15,7 +13,7 @@ describe('Map Component', () => {
   it('renders a map container with the correct dimensions', () => {
     render(
       <Map
-        city={CITY[0]}
+        city={CITIES[0]}
         height={500}
         width={800}
         offerList={mockOfferList}

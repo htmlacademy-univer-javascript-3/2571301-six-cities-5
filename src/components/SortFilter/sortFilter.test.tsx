@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, vi, expect } from 'vitest';
-import SortFilter from './SortFilter.tsx';
 import { FILTERS } from '../../mocks/filter.ts';
+import SortFilter from './SortFilter.tsx';
 
 describe('SortFilter Component', () => {
   it('renders with the initial filter', () => {

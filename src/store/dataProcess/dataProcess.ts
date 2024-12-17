@@ -1,7 +1,6 @@
-
 import {createSlice} from '@reduxjs/toolkit';
 import { NAMESPACE } from '../../mocks/sliceHeaders.ts';
-import {DataProcess, } from '../../types/state';
+import { DataProcess } from '../../types/state';
 import { emptyOffer } from '../../mocks/offer.ts';
 import { fetchComments, fetchOffer, fetchOfferNeibourhood, fetchOffers, getFavourites, postComment, setFavourites } from '../apiActions.ts';
 

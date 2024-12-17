@@ -1,8 +1,8 @@
-import { datatype } from 'faker';
-import UserHeaderInfo from './UserHeaderInfo.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { render, screen } from '@testing-library/react';
+import { datatype } from 'faker';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { AuthorizationStatus } from '../../mocks/login.ts';
+import UserHeaderInfo from './UserHeaderInfo.tsx';
 
 describe('Component: FavouriteListCard', () => {
   it('should render correctly when user signed in', () => {

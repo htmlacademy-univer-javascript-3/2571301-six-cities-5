@@ -1,6 +1,6 @@
 import { AuthorizationStatus } from './login';
 import { emptyOffer } from './offer';
-import {datatype, internet} from 'faker';
+import { datatype, internet } from 'faker';
 
 export const dataProcessInitialStateMock = {
   offerlist: [],

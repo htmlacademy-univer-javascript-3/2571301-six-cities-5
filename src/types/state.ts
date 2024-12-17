@@ -1,5 +1,5 @@
 import { AuthorizationStatus } from '../mocks/login.js';
-import {store} from '../store/index.js';
+import { store } from '../store/index.js';
 import { CommentList } from './comment.js';
 import { OfferDescription } from './offerDescription.js';
 import { OfferIdDescription } from './offerDescription.js';

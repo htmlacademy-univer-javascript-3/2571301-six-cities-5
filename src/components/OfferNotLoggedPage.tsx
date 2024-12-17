@@ -209,7 +209,6 @@ export default function OfferNotLoggedPage() {
                   <p className="place-card__type">Room</p>
                 </div>
               </article>
-
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
@@ -241,7 +240,6 @@ export default function OfferNotLoggedPage() {
                   <p className="place-card__type">Apartment</p>
                 </div>
               </article>
-
               <article className="near-places__card place-card">
                 <div className="place-card__mark">
                   <span>Premium</span>

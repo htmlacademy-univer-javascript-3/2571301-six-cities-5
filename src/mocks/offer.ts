@@ -1,4 +1,3 @@
-
 import {OfferIdDescription} from '../types/offerDescription';
 
 export const emptyOffer : OfferIdDescription = {

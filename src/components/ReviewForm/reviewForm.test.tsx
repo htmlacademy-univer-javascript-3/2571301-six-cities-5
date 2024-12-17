@@ -1,7 +1,7 @@
-import userEvent from '@testing-library/user-event';
-import ReviewForm from './ReviewForm.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
+import ReviewForm from './ReviewForm.tsx';
 
 describe('Component: ReviewForm', () => {
   const mockHandleChange = vi.fn();

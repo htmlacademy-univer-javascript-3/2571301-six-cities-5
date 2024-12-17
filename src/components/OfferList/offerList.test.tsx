@@ -1,10 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
-import OfferList from './OfferList';
-import { OfferDescription } from '../../types/offerDescription';
 import { datatype } from 'faker';
 import { withHistory, withStore } from '../../utils/mockComponent';
-
+import { OfferDescription } from '../../types/offerDescription';
+import OfferList from './OfferList';
 
 describe('OfferList Component', () => {
 
