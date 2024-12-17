@@ -1,7 +1,7 @@
 import { OfferDescription } from '../../types/offerDescription';
-import FavouriteListCard from '../FavouriteListCard/FavouriteListCard';
-import { store } from '../../store';
 import { setFavourites } from '../../store/apiActions';
+import { store } from '../../store';
+import FavouriteListCard from '../FavouriteListCard/FavouriteListCard';
 
 type FavouriteListProp = {
     offers: OfferDescription[];

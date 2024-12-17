@@ -1,12 +1,11 @@
 import { describe, it, vi, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { OfferDescription } from '../../types/offerDescription.ts';
-import MainPageCard from './MainPageCard.tsx';
+import { datatype } from 'faker';
 import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { makeFakeStore } from '../../utils/mocks.ts';
 import { AuthorizationStatus } from '../../mocks/login.ts';
-import { datatype } from 'faker';
-
+import { OfferDescription } from '../../types/offerDescription.ts';
+import MainPageCard from './MainPageCard.tsx';
 
 describe('MainPageCard Component', () => {
   const mockOffer: OfferDescription = {

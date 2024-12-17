@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import MainEmpty from './MainEmpty.tsx';
-import { AuthorizationStatus } from '../../mocks/login.ts';
 import { datatype } from 'faker';
 import { withHistory, withStore } from '../../utils/mockComponent.tsx';
-
+import { AuthorizationStatus } from '../../mocks/login.ts';
+import MainEmpty from './MainEmpty.tsx';
 
 describe('Component: MainEmpty', () => {
   it('should render correctly', () => {

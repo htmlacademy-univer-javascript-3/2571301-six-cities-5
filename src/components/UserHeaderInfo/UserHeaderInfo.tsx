@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { AppRoute, AuthorizationStatus } from '../../mocks/login';
 import { logoutAction } from '../../store/apiActions';
-import { getToken } from '../../services/token';
 import { getFavourites } from '../../store/selectors';
+import { AppRoute, AuthorizationStatus } from '../../mocks/login';
+import { getToken } from '../../services/token';
 
 function UserHeaderInfo({authStatus, userEmail}:{authStatus:AuthorizationStatus; userEmail:string}){
   const dispatch = useAppDispatch();

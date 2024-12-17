@@ -1,18 +1,18 @@
 import { useMemo } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/index.ts';
+import { getAuthorizationStatus, getComments, getOffersNearby, getUserEmail } from '../../store/selectors.ts';
+import { fetchComments, fetchOffer, fetchOfferNeibourhood, postComment } from '../../store/apiActions.ts';
+import { store } from '../../store/index.ts';
+import { AppRoute, AuthorizationStatus } from '../../mocks/login.ts';
+import { CITIES } from '../../mocks/city.ts';
 import { OfferDescription, OfferIdDescription } from '../../types/offerDescription.ts';
+import { CommentList, CommentPost } from '../../types/comment.ts';
 import ReviewList from '../ReviewList/ReviewList.tsx';
 import ReviewForm from '../ReviewForm/ReviewForm.tsx';
 import OfferList from '../OfferList/OfferList.tsx';
 import Map from '../Map/Map.tsx';
-import { CITIES } from '../../mocks/city.ts';
 import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo.tsx';
-import { useAppSelector } from '../../hooks/index.ts';
-import { CommentList, CommentPost } from '../../types/comment.ts';
-import { AppRoute, AuthorizationStatus } from '../../mocks/login.ts';
-import { getAuthorizationStatus, getComments, getOffersNearby, getUserEmail } from '../../store/selectors.ts';
-import { store } from '../../store/index.ts';
-import { fetchComments, fetchOffer, fetchOfferNeibourhood, postComment } from '../../store/apiActions.ts';
-import { Link, useParams } from 'react-router-dom';
 import { emptyOffer } from '../../mocks/offer.ts';
 import NotFoundPage from '../NotFoundPage/NotFoundPage.tsx';
 
@@ -59,7 +59,6 @@ function OfferPage({ offer, offerList, city, onFavouriteClick}: {offer:OfferIdDe
 
     <div className="page">
       <UserHeaderInfo authStatus={authStatusMemo} userEmail={userEmailMemo}/>
-
       <main className="page__main page__main--offer">
         <section className="offer" data-testid = "offer-info">
           <div className="offer__gallery-container container" data-testid = "offer-gallery">
@@ -147,14 +146,12 @@ function OfferPage({ offer, offerList, city, onFavouriteClick}: {offer:OfferIdDe
                   <p className="offer__text">
                     {offer.description}
                   </p>
-
                 </div>
               </div>
               <section className="offer__reviews reviews" data-testid = "reviews">
                 <ReviewList guestReviews = {[...comments].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())}/>
                 {authStatus === AuthorizationStatus.Auth ? <ReviewForm onFormSubmit={onFormSubmit}/> : null}
               </section>
-
             </div>
           </div>
           <section className="offer__map map" data-testid = "map">

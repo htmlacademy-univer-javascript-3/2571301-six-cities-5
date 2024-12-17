@@ -1,9 +1,9 @@
-import {useRef} from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useRef } from 'react';
+import { toast } from 'react-toastify';
 import '../../../markup/css/errorMessage.css';
 import { AppRoute } from '../../mocks/login';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { CITIES } from '../../mocks/city';
 
 function LoginPage({onLoginFormSubmit, onRandomCityClick}:{onLoginFormSubmit : (login:string,password:string) => void; onRandomCityClick : (cityNumber: number) => void}):JSX.Element{

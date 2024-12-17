@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { NAMESPACE } from '../mocks/sliceHeaders.ts';
 import { CityProcess } from '../types/state.ts';
 const initialState: CityProcess = {

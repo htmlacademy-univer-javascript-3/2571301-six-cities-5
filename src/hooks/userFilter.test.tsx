@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import {useFilter} from './useFilter.ts';
-import { OfferDescription } from '../types/offerDescription.ts';
 import { datatype } from 'faker';
+import { OfferDescription } from '../types/offerDescription.ts';
+import { useFilter } from './useFilter.ts';
 
 const TestComponent = ({offerList}:{offerList:OfferDescription[]}) => {
   const filteredOfferByLowPrice = useFilter(offerList,'Price: low to high');

@@ -1,8 +1,8 @@
-import FavouriteList from './FavoriteList.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { render, screen } from '@testing-library/react';
-import { mockOfferList } from '../../mocks/storeMock.ts';
 import { datatype } from 'faker';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
+import { mockOfferList } from '../../mocks/storeMock.ts';
+import FavouriteList from './FavoriteList.tsx';
 
 describe('Component: FavouriteList', () => {
   it('should render correctly', () => {

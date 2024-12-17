@@ -1,6 +1,6 @@
-
 import { AxiosInstance } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { AppDispatch, State } from '../types/state.js';
 import { OfferDescription, OfferIdDescription } from '../types/offerDescription.js';
 import { redirectToRoute } from './cityAction.js';

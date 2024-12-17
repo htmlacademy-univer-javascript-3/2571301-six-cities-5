@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { useRef } from 'react';
-import useMap from './useMap.tsx';
-import { City } from '../types/points';
 import { CITIES } from '../mocks/city';
+import { City } from '../types/points';
+import useMap from './useMap.tsx';
 
 const TestComponent = (city : City) => {
   const mapRef = useRef(null);

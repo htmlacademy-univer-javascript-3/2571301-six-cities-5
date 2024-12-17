@@ -1,6 +1,6 @@
-import Review from '../Review/Review';
-import { Comment } from '../../types/comment';
 import React from 'react';
+import { Comment } from '../../types/comment';
+import Review from '../Review/Review';
 
 function ReviewList({guestReviews}:{guestReviews:Comment[]}){
   return(

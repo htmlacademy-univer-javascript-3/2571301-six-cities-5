@@ -1,6 +1,6 @@
-import { FILTERS } from '../../mocks/filter';
-import {MouseEvent} from 'react';
+import { MouseEvent } from 'react';
 import { useState } from 'react';
+import { FILTERS } from '../../mocks/filter';
 
 type sortFilterProp = {
     filter:string;

@@ -1,4 +1,3 @@
-
 import {City} from '../types/points';
 
 export const CITIES: City[] = [

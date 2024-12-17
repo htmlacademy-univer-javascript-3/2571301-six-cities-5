@@ -1,22 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { useMemo } from 'react';
+import { getAuthorizationStatus, getCity, getFavourites, getOffer, getOfferList, getUserEmail, isLoading } from '../store/selectors.ts';
+import { loginAction, setFavourites } from '../store/apiActions.ts';
+import { changeCityAction } from '../store/cityProcess.ts';
+import { redirectToRoute } from '../store/cityAction.ts';
 import { AppRoute, AuthorizationStatus } from '../mocks/login';
+import { CITIES } from '../mocks/city.ts';
 import MainPage from './MainPage/MainPage';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import OfferPage from './OfferPage/OfferPage';
 import FavouritePage from './FavouritePage/FavoritePage';
 import LoginPage from './LoginPage/LoginPage';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import { useAppSelector } from '../hooks';
 import LoadingPage from './LoadingPage/LoadingPage.tsx';
-import { useMemo } from 'react';
-import { getAuthorizationStatus, getCity, getFavourites, getOffer, getOfferList, getUserEmail, isLoading } from '../store/selectors.ts';
 import MainEmpty from './MainEmpty/MainEmpty.tsx';
 import FavouritePageEmpty from './FavouritePageEmpty/FavouritePageEmpty.tsx';
-import { useAppDispatch } from '../hooks';
-import { loginAction, setFavourites } from '../store/apiActions.ts';
-import { changeCityAction } from '../store/cityProcess.ts';
-import { CITIES } from '../mocks/city.ts';
-import { redirectToRoute } from '../store/cityAction.ts';
 
 function App(): JSX.Element {
 

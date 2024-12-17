@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import Review from './Review.tsx';
 import { mockCommentList } from '../../mocks/storeMock.ts';
-
+import Review from './Review.tsx';
 
 describe('Component: Loading page', () => {
   it('should render correctly', () => {

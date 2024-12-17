@@ -1,8 +1,9 @@
+import { datatype } from 'faker';
+
 import { AuthorizationStatus } from '../mocks/login.ts';
 import { CityProcess, DataProcess, UserProcess } from '../types/state.ts';
 import { NAMESPACE } from '../mocks/sliceHeaders';
-import { getAuthorizationStatus, getCity, getComments, getFavourites, getOffer, getOfferList, getOffersNearby, getUserEmail, isLoading, offerIsLoadingStatus} from './selectors';
-import { datatype } from 'faker';
+import { getAuthorizationStatus, getCity, getComments, getFavourites, getOffer, getOfferList, getOffersNearby, getUserEmail, isLoading, offerIsLoadingStatus } from './selectors';
 import { dataProcessInitialStateMock, mockCommentList, mockOffer, mockOfferList, mockUser } from '../mocks/storeMock.ts';
 
 describe('UserProcess selectors', () => {

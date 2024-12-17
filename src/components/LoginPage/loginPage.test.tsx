@@ -1,7 +1,7 @@
-import LoginPage from './LoginPage.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
+import LoginPage from './LoginPage.tsx';
 
 describe('Component: LoginPage', () => {
   const mockFormSubmit = vi.fn();

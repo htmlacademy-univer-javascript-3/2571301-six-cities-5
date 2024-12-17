@@ -1,15 +1,15 @@
 import { useState, useMemo, useCallback } from 'react';
-import OfferList from '../OfferList/OfferList.tsx';
-import Map from '../Map/Map';
 import { useAppSelector } from '../../hooks';
-import { CITIES } from '../../mocks/city.ts';
-import CityList from '../CityList/CityList.tsx';
-import { OfferDescription } from '../../types/offerDescription.ts';
-import SortFilter from '../SortFilter/SortFilter.tsx';
-import { FILTERS } from '../../mocks/filter';
-import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo.tsx';
 import { useFilter } from '../../hooks/useFilter.ts';
 import { getAuthorizationStatus, getCity, getUserEmail } from '../../store/selectors.ts';
+import { CITIES } from '../../mocks/city.ts';
+import { FILTERS } from '../../mocks/filter';
+import { OfferDescription } from '../../types/offerDescription.ts';
+import OfferList from '../OfferList/OfferList.tsx';
+import Map from '../Map/Map';
+import CityList from '../CityList/CityList.tsx';
+import SortFilter from '../SortFilter/SortFilter.tsx';
+import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo.tsx';
 
 function MainPage({ offerList }: { offerList: OfferDescription[] }): JSX.Element {
 

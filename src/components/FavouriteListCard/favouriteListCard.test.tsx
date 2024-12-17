@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
-import FavouriteListCard from './FavouriteListCard.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { render, screen } from '@testing-library/react';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { mockOfferList } from '../../mocks/storeMock.ts';
+import FavouriteListCard from './FavouriteListCard.tsx';
 
 describe('Component: FavouriteListCard', () => {
   const mockHandleChange = vi.fn();

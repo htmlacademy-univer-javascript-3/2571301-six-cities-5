@@ -1,7 +1,7 @@
-import MainPage from './MainPage.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { render, screen } from '@testing-library/react';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { mockOfferList } from '../../mocks/storeMock.ts';
+import MainPage from './MainPage.tsx';
 
 describe('Component: MainPage', () => {
   it('should render correctly', () => {

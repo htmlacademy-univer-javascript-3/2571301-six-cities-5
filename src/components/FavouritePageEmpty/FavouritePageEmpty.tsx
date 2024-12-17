@@ -1,6 +1,6 @@
 import React from 'react';
-import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo';
 import { AuthorizationStatus } from '../../mocks/login';
+import UserHeaderInfo from '../UserHeaderInfo/UserHeaderInfo';
 
 type FavouritePageEmptyProps = {
     authStatus: AuthorizationStatus;

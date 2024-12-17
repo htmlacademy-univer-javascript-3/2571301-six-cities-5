@@ -1,6 +1,6 @@
-import CityList from './CityList.tsx';
-import { withHistory, withStore } from '../../utils/mockComponent.tsx';
 import { render, screen } from '@testing-library/react';
+import { withHistory, withStore } from '../../utils/mockComponent.tsx';
+import CityList from './CityList.tsx';
 
 describe('Component: CityList', () => {
   it('should render correctly', () => {

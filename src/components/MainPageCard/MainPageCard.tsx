@@ -1,13 +1,12 @@
-
-import { OfferDescription } from '../../types/offerDescription.ts';
-import { Link } from 'react-router-dom';
-import { MouseEvent} from 'react';
-import { fetchComments, fetchOffer, fetchOfferNeibourhood } from '../../store/apiActions.ts';
-import { store } from '../../store/index.ts';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { MouseEvent } from 'react';
 import { useAppSelector } from '../../hooks/index.ts';
 import { getAuthorizationStatus } from '../../store/selectors.ts';
+import { fetchComments, fetchOffer, fetchOfferNeibourhood } from '../../store/apiActions.ts';
+import { store } from '../../store/index.ts';
 import { AppRoute, AuthorizationStatus } from '../../mocks/login.ts';
+import { OfferDescription } from '../../types/offerDescription.ts';
 
 type MainPageCardProps = {
   offer: OfferDescription;
